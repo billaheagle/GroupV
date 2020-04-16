@@ -4,12 +4,12 @@ import LoginComponent from './components/LoginComponent';
 import DashboardComponent from './components/DashboardComponent';
 //------------------ADMIN COMPONENT---------------------------//
 import AdminComponent from './components/admin/AdminComponent';
-import UserComponent from './components/admin/UserComponent';
-import RoleComponent from './components/admin/RoleComponent';
-import CategoryComponent from './components/admin/CategoryComponent';
-import StoreComponent from './components/admin/StoreComponent';
-import PaymentComponent from './components/admin/PaymentComponent';
-import PromoComponent from './components/admin/PromoComponent';
+import UsersComponent from './components/admin/UsersComponent';
+import RolesComponent from './components/admin/RolesComponent';
+import CategoriesComponent from './components/admin/CategoriesComponent';
+import StoresComponent from './components/admin/StoresComponent';
+import PaymentsComponent from './components/admin/PaymentsComponent';
+import PromosComponent from './components/admin/PromosComponent';
 
 
 Vue.use(VueRouter)
@@ -31,34 +31,34 @@ const routes = [
 	name: 'Admin',
 	children: [
 		{
-			path: 'payment',
-			component: PaymentComponent,
-			name: 'Payment'
+			path: 'payments',
+			component: PaymentsComponent,
+			name: 'Payments'
 		},
 		{
-			path: 'role',
-			component: RoleComponent,
-			name: 'Role'
+			path: 'roles',
+			component: RolesComponent,
+			name: 'Roles'
 		},
 		{
-			path: 'category',
-			component: CategoryComponent,
-			name: 'Role'
+			path: 'categories',
+			component: CategoriesComponent,
+			name: 'Roles'
 		},
 		{
-			path: 'promo',
-			component: PromoComponent,
-			name: 'Promo'
+			path: 'promos',
+			component: PromosComponent,
+			name: 'Promos'
 		},
 		{
-			path: 'store',
-			component: StoreComponent,
-			name: 'Store'
+			path: 'stores',
+			component: StoresComponent,
+			name: 'Stores'
 		},
 		{
-			path: 'user',
-			component: UserComponent,
-			name: 'User'
+			path: 'users',
+			component: UsersComponent,
+			name: 'Users'
 		},
 	],
 },

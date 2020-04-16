@@ -79,33 +79,33 @@
             items: [
                 {
                     icon: 'account',
-                    text: 'User',
-                    action: '/admin/user'
+                    text: 'Users',
+                    action: '/admin/users'
                 }, 
                 {
                     icon: 'animation-outline',
                     text: 'Roles',
-                    action: '/admin/role'
+                    action: '/admin/roles'
                 }, 
                 {
                     icon: 'briefcase-edit-outline',
                     text: 'Categories',
-                    action: '/admin/category'
+                    action: '/admin/categories'
                 }, 
                 {
                     icon: 'store',
-                    text: 'Store',
-                    action: '/admin/store'
+                    text: 'Stores',
+                    action: '/admin/stores'
                 }, 
                 {
                     icon: 'wallet',
-                    text: 'Payment',
-                    action: '/admin/payment'
+                    text: 'Payments',
+                    action: '/admin/payments'
                 }, 
                 {
                     icon: 'ticket-percent',
                     text: 'Promos',
-                    action: '/admin/promo'
+                    action: '/admin/promos'
                 }, 
             ],
         }),

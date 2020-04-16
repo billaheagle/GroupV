@@ -1,74 +1,51 @@
 <template>
 	<v-app id="inspire">
-	    <v-data-table item-key="name" class="elevation-1" :loading="loading" loading-text="Loading... Please wait"
-	    :headers="headers" :options.sync="options" :server-items-length="users.total" :items="users.data" show-select @input="selectAll" :footer-props="footerProps">
+	    <v-data-table item-key="name" class="elevation-1" :loading="loading" loading-text="Loading... Please wait" 
+	    :headers="headers" :options.sync="options" :server-items-length="categories.total" :items="categories.data" show-select @input="selectAll" :footer-props="footerProps">
 	        <template v-slot:top>
 	            <v-toolbar flat>
-	                <v-toolbar-title >User Management System</v-toolbar-title>
+	                <v-toolbar-title >Category Management System</v-toolbar-title>
 	                <v-divider class="mx-4" inset vertical></v-divider>
 	                <v-spacer></v-spacer>
-	                <v-dialog v-model="dialog" max-width="500px">
+	                <v-dialog v-model="dialog" max-width="800px">
 	                    <template v-slot:activator="{ on }">
-	                        <v-btn color="primary" dark class="mb-2" v-on="on">Add New User</v-btn>
+	                        <v-btn color="primary" dark class="mb-2" v-on="on">Add New Category</v-btn>
 	                        <v-btn color="primary" dark class="mb-2 mr-2" @click="deleteAll" disabled>Delete</v-btn>
 	                    </template>
 	                    <v-card>
 	                        <v-card-title>
 	                            <span class="headline">{{ formTitle }}</span>
 	                        </v-card-title>
-	                        <v-form v-model="valid" v-on:submit.stop.preverent="save">
-		                        <v-card-text>
-		                            <v-container>
-		                                <v-row>
-		                                    <v-col cols="12" sm="12">
-		                                        <v-text-field :rules="[rules.required, rules.min]" v-model="editedItem.name" label="Name"></v-text-field>
-		                                    </v-col>
-		                                </v-row>
-		                                <v-row v-if="editedIndex == -1">
-		                                    <v-col cols="12" sm="12">
-		                                        <v-text-field type="password"  :rules="[rules.required]" v-model="editedItem.password" label="Type Password"></v-text-field>
-		                                    </v-col>
-		                                    <v-col cols="12" sm="12">
-		                                        <v-text-field type="password"  :rules="[rules.required, passwordMatch]" v-model="editedItem.rpassword" label="Retype Password"></v-text-field>
-		                                    </v-col>
-		                                    <v-col cols="12" sm="12">
-		                                        <v-text-field type="email" :success-messages="success" :error-messages="error" :rules="[rules.required, rules.validEmail ]" :blur="checkEmail" v-model="editedItem.email" label="Email"></v-text-field>
-		                                    </v-col>
-		                                </v-row>
-		                                <v-row>
-		                                    <v-col cols="12" sm="12">
-		                                        <v-select :items="roles"  :rules="[rules.required]" v-model="editedItem.role" label="Select Role"></v-select>
-		                                    </v-col>
-		                                </v-row>
-		                            </v-container>
-		                        </v-card-text>
-		                        <v-card-actions>
-		                            <v-spacer></v-spacer>
-		                            <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-		                            <v-btn type="submit" :disabled="!valid" color="blue darken-1" text @clic.prevent="save">Save</v-btn>
-		                        </v-card-actions>
-		                    </v-form>
+
+	                        <v-card-text>
+	                            <v-container>
+	                                <v-row>
+	                                    <v-col cols="12" sm="6">
+	                                        <v-text-field v-model="editedItem.name" :rules="[rules.required, rules.min]" :blur="checkCategory" label="Category Name"></v-text-field>
+	                                    </v-col>
+	                                    <v-col cols="12" sm="6">
+	                                    	<v-file-input v-model="editedItem.photo" :rules="[rules.required]" label="Select File" placeholder="Upload Photo" accept="image/jpg, image/png, image/bmp, image/jpeg"/>
+	                                    </v-col>
+	                                </v-row>
+	                            </v-container>
+	                        </v-card-text>
+	                        <v-card-actions>
+	                            <v-spacer></v-spacer>
+	                            <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
+	                            <v-btn type="submit" :disabled="!valid" color="blue darken-1" text @click.prevent="save">Save</v-btn>
+	                        </v-card-actions>
 	                    </v-card>
 	                </v-dialog>
 	            </v-toolbar>
 	        	<v-text-field @input="searchIt" append-icon="mdi-magnify" class="mx-4" label="Search..." single-line hide-details></v-text-field>
-	        </template>  
-	        <template v-slot:item.role="{ item }">
-		        <v-edit-dialog large block persistent :return-value.sync="item.role"  @save="updateRole(item)" >
-		          	{{item.role}}
-		          	<template v-slot:input>
-		            	<h4>Change Role</h4>
-		            	<v-select :rules="[rules.required]" :items="roles" v-model="item.role" color="error" label="Select Role" ></v-select>
-		          	</template>
-		        </v-edit-dialog>
-		    </template>
+	        </template>
 		    <template v-slot:item.photo="{ item }">
 		        <v-edit-dialog>
-		          	<v-list-item-avatar>
+		          	<v-list-item-photo>
 		            	<v-img :src="item.photo" aspect-ratio="1" class="grey lighten-2"></v-img>
-		          	</v-list-item-avatar>
+		          	</v-list-item-photo>
 		          	<template v-slot:input>
-		            	<v-file-input v-model="editedItem.photo" label="Select File" placeholder="Upload Avatar" accept="image/jpg, image/png, image/bmp, image/jpeg" @change="uploadPhoto(item)" />
+		            	<v-file-input v-model="editedItem.photo" label="Select File" placeholder="Upload Photo" accept="image/jpg, image/png, image/bmp, image/jpeg" @change="uploadAvatar(item)" />
 		          	</template>
 		        </v-edit-dialog>
 		    </template>
@@ -101,7 +78,6 @@
         	snackbar: false,
         	selected: [],
         	text: '',
-        	roles: [],
         	success: '',
         	error: '',
         	options: {
@@ -112,39 +88,31 @@
         	rules: {
         		required: v => !!v || "This Field Required",
         		min: v => v.length >= 5 || "Minimum 5 Characters Required",
-        		validEmail: v => /.+@.+\..+/.test(v) || "E-mail must be valid",
         	},
         	footerProps: {
 				itemsPerPageOptions: [5, 10, 15],
-				itemsPerPageText: 'Users Per Page',
+				itemsPerPageText: 'Categories Per Page',
 				'show-current-page': true,
 				'show-first-last-page': true
         	},
         	headers: [
-		        { text: '#', align: 'left', sortable: false, value: 'id' },
+		        { text: '#', align: 'left', sortable: false, value: 'id'},
 		        { text: 'Name', value: 'name' },
-		        { text: 'Email', value: 'email' },
-		        { text: 'Role', value: 'role' },
+		        { text: 'Slug', value: 'slug' },
 		        { text: 'Photo', sortable: false, value: 'photo' },
-		        { text: 'Created At', value: 'created_at' },
-		        { text: 'Updated At',  value: 'updated_at' },
-		        { text: 'Actions', value: 'actions' },
+		        { text: 'Actions', sortable: false, value: 'actions'},
 		    ],
-		    users: [],
+		    categories: [],
 		    editedIndex: -1,
 		    editedItem: {
 		    	id: '',
 		        name: '',
-		        email: '',
-		        role: '',
-		        password: '',
 		        photo: null,
 		    },
 		    defaultItem: {
 		    	id: '',
 		        name: '',
-		        email: '',
-		        role: '',
+		        slug: '',
 		        photo: '',
 		        created_at: '',
 		        updated_at: '',
@@ -152,21 +120,18 @@
         }),
         computed: {
 	      	formTitle () {
-	        	return this.editedIndex === -1 ? 'New User' : 'Edit User'
+	        	return this.editedIndex === -1 ? 'New Category' : 'Edit Category'
 	      	},
-	      	passwordMatch() {
-	      		return this.editedItem.password != this.editedItem.rpassword ? "Password Does Not Match" : true;
-	      	},
-	    	checkEmail() {
-	    		if (/.+@.+\..+/.test(this.editedItem.email)) {
-			        axios.post("/api/email/verify", { email: this.editedItem.email })
+	      	checkCategory() {
+	    		if (this.editedItem.name.length >= 5) {
+			        axios.post("/api/category/verify", { email: this.editedItem.name })
 			        .then(res => {
 			            this.success = res.data.message;
 			            this.error = "";
 			        })
 			        .catch(err => {
 			            this.success = "";
-			            this.error = "Email Already Exists";
+			            this.error = "Category Already Exists";
 			        });
 		      	} else {
 			        this.success = "";
@@ -182,10 +147,9 @@
 		    	handler(e) {
 		    		const sortBy = e.sortBy.length > 0 ? e.sortBy[0].trim() : 'id';
 		    		const orderBy = e.sortDesc[0] ? 'desc' : 'asc';
-					axios.get(`/api/users`, {params: {'page': e.page,'per_page': e.itemsPerPage, 'sort_by': sortBy, 'order_by': orderBy}})
+					axios.get(`/api/categories`, {params: {'page': e.page,'per_page': e.itemsPerPage, 'sort_by': sortBy, 'order_by': orderBy}})
 					.then(res => {
-						this.users = res.data.users;
-         				this.roles = res.data.roles;
+						this.categories = res.data.categories
 					})
 					.catch(err => {
 						if(err.response.status == 401) {
@@ -201,7 +165,7 @@
 	      	this.initialize()
 	    },
 	    methods: {
-	    	uploadPhoto(item) {
+	    	uploadAvatar(item) {
 	    		if (this.editedItem.photo != null) {
 			        const index = this.users.data.indexOf(item);
 			        let formData = new FormData();
@@ -215,19 +179,6 @@
 			        .catch(err => console.log(err.response));
 		      	}
 	    	},
-	    	updateRole(item) {
-	    		const index = this.users.data.indexOf(item);
-		      	axios.post("/api/user/role", { role: item.role, user: item.id })
-		        .then(res => {
-		          	this.text = res.data.user.name + "'s Role Updated to " + res.data.user.role;
-		          	this.snackbar = true;
-		        })
-		        .catch(error => {
-		          	this.text = error.response.data.user.name + "'s Role Cannot Be Updated to " + error.response.data.user.role;
-		          	this.users.data[index].role = error.response.data.user.role;
-		          	this.snackbar = true;
-		        });
-	    	},
 	    	selectAll(e) {
 	    		this.selected = []
 	    		if(e.length > 0) {
@@ -239,13 +190,13 @@
 	    		let decide = confirm('Are you sure you want to delete these items?')
 		        if(decide) {
 		        	const selected_id = this.selected.map(val => val.id)
-			        //axios.post('/api/users/delete', {'users': this.selected})
-			        axios.post('/api/users/delete', {'users': selected_id})
+			        //axios.post('/api/categories/delete', {'categories': this.selected})
+			        axios.post('/api/categories/delete', {'categories': selected_id})
 			        .then(res => {
 		        		this.text = "Records Deleted Successfully!";
 			        	this.selected.map(val => {
-			        		const index = this.users.data.indexOf(val)
-							this.users.data.splice(index, 1)
+			        		const index = this.categories.data.indexOf(val)
+							this.categories.data.splice(index, 1)
 			        	})
 			        	this.snackbar = true;
 			        }).catch(err => {
@@ -257,25 +208,22 @@
 	    	},
 	    	searchIt(e) {
 	    		if(e.length > 2) {
-	    			axios.get(`/api/users/${e}`)
-	    			.then(res => this.users = res.data.users)
+	    			axios.get(`/api/categories/${e}`)
+	    			.then(res => this.categories = res.data.categories)
 	    			.catch(err => console.dir(err.response))
 	    		}
 	    		if(e.length<=0){
-		          	axios.get(`/api/users`)
-		            .then(res => this.users = res.data.users)
+		          	axios.get(`/api/categories`)
+		            .then(res => this.categories = res.data.categories)
 		            .catch(err => console.dir(err.response))
 		        }
 	    	},
 		    paginate(e) {
-		    	const sortBy = e.sortBy.length == 0 ? "name" : e.sortBy[0];
-		    	const orderBy = e.sortDesc.length > 0 && e.sortDesc[0] ? "asc" : "desc";
-		    	//const sortBy = this.options.sortBy.length == 0 ? "name" : this.options.sortBy[0];
-		    	//const orderBy = this.options.sortDesc.length > 0 && this.options.sortDesc[0] ? "asc" : "desc";
-				axios.get(`/api/users`, {params: {'page': e.page,'per_page': e.itemsPerPage, 'sort_by': sortBy, 'order_by': orderBy}})
+		    	const sortBy = e.sortBy.length > 0 ? e.sortBy[0].trim() : 'name';
+		    	const orderBy = e.sortDesc[0] ? 'desc' : 'asc';
+				axios.get(`/api/categories`, {params: {'page': e.page,'per_page': e.itemsPerPage, 'sort_by': sortBy, 'order_by': orderBy}})
 				.then(res => {
-					this.users = res.data.users
-         			this.roles = res.data.roles;
+					this.categories = res.data.categories
 				})
 				.catch(err => {
 					if(err.response.status == 401) {
@@ -302,19 +250,19 @@
                 });
 			},
 		    editItem (item) {
-		        this.editedIndex = this.users.data.indexOf(item)
+		        this.editedIndex = this.categories.data.indexOf(item)
 		        this.editedItem = Object.assign({}, item)
 		        this.dialog = true
 		    },
 		    deleteItem (item) {
-		        const index = this.users.data.indexOf(item)
+		        const index = this.categories.data.indexOf(item)
 		        let decide = confirm('Are you sure you want to delete this item?')
 		        if(decide) {
-			        axios.delete('/api/users/' + item.id)
+			        axios.delete('/api/categories/' + item.id)
 			        .then(res => {
 		        		this.text = "Record Deleted Successfully!";
 			        	this.snackbar = true;
-			        	this.users.data.splice(index, 1)
+			        	this.categories.data.splice(index, 1)
 			        }).catch(err => {
 			        	console.log(err.response)
 		        		this.text = "Error Deleting Record!";
@@ -332,11 +280,11 @@
 		    save () {
 		        if (this.editedIndex > -1) {
 		        	const index = this.editedIndex
-		        	axios.put('/api/users/' + this.editedItem.id, this.editedItem)
+		        	axios.put('/api/categories/' + this.editedItem.id, {'name': this.editedItem.name })
 		        	.then(res => {
 		        		this.text = "Record Updated Successfully!";
 		        		this.snackbar = true;
-		        		Object.assign(this.users.data[index], res.data.user)
+		        		Object.assign(this.categories.data[index], res.data.category)
 		        	})
 		        	.catch(err => {
 		        		console.log(err.response)
@@ -344,11 +292,11 @@
 		        		this.snackbar = true;
 		        	})
 		        } else {
-			        axios.post('/api/users', this.editedItem)
+			        axios.post('/api/categories', {'name': this.editedItem.name })
 			    	.then(res => {
 		        		this.text = "Record Added Successfully!";
 		        		this.snackbar = true;
-			    		this.users.data.push(res.data.user)
+			    		this.categories.data.push(res.data.category)
 			    	})
 			    	.catch(err => {
 		        		console.log(err.response)

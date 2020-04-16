@@ -1,15 +1,15 @@
 <template>
 	<v-app id="inspire">
 	    <v-data-table item-key="name" class="elevation-1" :loading="loading" loading-text="Loading... Please wait" 
-	    :headers="headers" :options.sync="options" :server-items-length="roles.total" :items="roles.data" show-select @input="selectAll" :footer-props="footerProps">
+	    :headers="headers" :options.sync="options" :server-items-length="promos.total" :items="promos.data" show-select @input="selectAll" :footer-props="footerProps">
 	        <template v-slot:top>
 	            <v-toolbar flat>
-	                <v-toolbar-title >Role Management System</v-toolbar-title>
+	                <v-toolbar-title >Promo Management System</v-toolbar-title>
 	                <v-divider class="mx-4" inset vertical></v-divider>
 	                <v-spacer></v-spacer>
-	                <v-dialog v-model="dialog" max-width="500px">
+	                <v-dialog v-model="dialog" max-width="800px">
 	                    <template v-slot:activator="{ on }">
-	                        <v-btn color="primary" dark class="mb-2" v-on="on">Add New Role</v-btn>
+	                        <v-btn color="primary" dark class="mb-2" v-on="on">Add New Promo</v-btn>
 	                        <v-btn color="primary" dark class="mb-2 mr-2" @click="deleteAll" disabled>Delete</v-btn>
 	                    </template>
 	                    <v-card>
@@ -20,16 +20,22 @@
 	                        <v-card-text>
 	                            <v-container>
 	                                <v-row>
-	                                    <v-col cols="12" sm="12">
-	                                        <v-text-field autofocus v-model="editedItem.name" label="Role Name"></v-text-field>
+	                                    <v-col cols="12" sm="6">
+	                                        <v-text-field v-model="editedItem.name" :rules="[rules.required, rules.min]" label="Promo Name"></v-text-field>
 	                                    </v-col>
+	                                    <v-col cols="12" sm="6">
+	                                        <v-text-field v-model="editedItem.name" :rules="[rules.required, rules.min]" :blur="checkCode" label="Promo Code"></v-text-field>
+	                                    </v-col>
+		                                <v-col cols="12" md="12">
+									       	<v-textarea type="text" :rules="[rules.required]" v-model="editedItem.description" label="Description"></v-textarea>
+									    </v-col>
 	                                </v-row>
 	                            </v-container>
 	                        </v-card-text>
 	                        <v-card-actions>
 	                            <v-spacer></v-spacer>
 	                            <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-	                            <v-btn color="blue darken-1" text @click="save">Save</v-btn>
+	                            <v-btn type="submit" :disabled="!valid" color="blue darken-1" text @click.prevent="save">Save</v-btn>
 	                        </v-card-actions>
 	                    </v-card>
 	                </v-dialog>
@@ -59,53 +65,72 @@
 <script>
     export default {
         data: () => ({
+        	valid: true,
         	dialog: false,
         	loading: false,
         	snackbar: false,
         	selected: [],
         	text: '',
+        	success: '',
+        	error: '',
         	options: {
         		itemsPerPage: 5,
         		sortBy: ['id'],
         		sortDesc: [false]
         	},
+        	rules: {
+        		required: v => !!v || "This Field Required",
+        		min: v => v.length >= 5 || "Minimum 5 Characters Required",
+        	},
         	footerProps: {
 				itemsPerPageOptions: [5, 10, 15],
-				itemsPerPageText: 'Roles Per Page',
+				itemsPerPageText: 'Promos Per Page',
 				'show-current-page': true,
 				'show-first-last-page': true
         	},
         	headers: [
-		        {
-		          text: '#',
-		          align: 'left',
-		          sortable: false,
-		          value: 'id',
-		        },
+		        { text: '#', align: 'left', sortable: false, value: 'id'},
 		        { text: 'Name', value: 'name' },
-		        { text: 'Created At', value: 'created_at' },
-		        { text: 'Updated At', value: 'updated_at' },
-		        { text: 'Actions', value: 'actions'},
+		        { text: 'Promo Code', value: 'promo_code' },
+		        { text: 'Actions', sortable: false, value: 'actions'},
 		    ],
-		    roles: [],
+		    promos: [],
 		    editedIndex: -1,
 		    editedItem: {
 		    	id: '',
 		        name: '',
-		        created_at: '',
-		        updated_at: '',
+		        promo_code: '',
+		        promo: '',
 		    },
 		    defaultItem: {
 		    	id: '',
 		        name: '',
+		        promo_code: '',
+		        promo: '',
 		        created_at: '',
 		        updated_at: '',
 		    },
         }),
         computed: {
 	      	formTitle () {
-	        	return this.editedIndex === -1 ? 'New Role' : 'Edit Role'
+	        	return this.editedIndex === -1 ? 'New Promo' : 'Edit Promo'
 	      	},
+	      	checkCode() {
+	    		if (this.editedItem.name.length >= 5) {
+			        axios.post("/api/promo/verify", { email: this.editedItem.name })
+			        .then(res => {
+			            this.success = res.data.message;
+			            this.error = "";
+			        })
+			        .catch(err => {
+			            this.success = "";
+			            this.error = "Promo Already Exists";
+			        });
+		      	} else {
+			        this.success = "";
+		      		this.error = "";
+		      	}
+	    	},
 	    },
 	    watch: {
 		    dialog (val) {
@@ -115,9 +140,9 @@
 		    	handler(e) {
 		    		const sortBy = e.sortBy.length > 0 ? e.sortBy[0].trim() : 'id';
 		    		const orderBy = e.sortDesc[0] ? 'desc' : 'asc';
-					axios.get(`/api/roles`, {params: {'page': e.page,'per_page': e.itemsPerPage, 'sort_by': sortBy, 'order_by': orderBy}})
+					axios.get(`/api/promos`, {params: {'page': e.page,'per_page': e.itemsPerPage, 'sort_by': sortBy, 'order_by': orderBy}})
 					.then(res => {
-						this.roles = res.data.roles
+						this.promos = res.data.promos
 					})
 					.catch(err => {
 						if(err.response.status == 401) {
@@ -144,13 +169,13 @@
 	    		let decide = confirm('Are you sure you want to delete these items?')
 		        if(decide) {
 		        	const selected_id = this.selected.map(val => val.id)
-			        //axios.post('/api/roles/delete', {'roles': this.selected})
-			        axios.post('/api/roles/delete', {'roles': selected_id})
+			        //axios.post('/api/promos/delete', {'promos': this.selected})
+			        axios.post('/api/promos/delete', {'promos': selected_id})
 			        .then(res => {
 		        		this.text = "Records Deleted Successfully!";
 			        	this.selected.map(val => {
-			        		const index = this.roles.data.indexOf(val)
-							this.roles.data.splice(index, 1)
+			        		const index = this.promos.data.indexOf(val)
+							this.promos.data.splice(index, 1)
 			        	})
 			        	this.snackbar = true;
 			        }).catch(err => {
@@ -162,22 +187,22 @@
 	    	},
 	    	searchIt(e) {
 	    		if(e.length > 2) {
-	    			axios.get(`/api/roles/${e}`)
-	    			.then(res => this.roles = res.data.roles)
+	    			axios.get(`/api/promos/${e}`)
+	    			.then(res => this.promos = res.data.promos)
 	    			.catch(err => console.dir(err.response))
 	    		}
 	    		if(e.length<=0){
-		          	axios.get(`/api/roles`)
-		            .then(res => this.roles = res.data.roles)
+		          	axios.get(`/api/promos`)
+		            .then(res => this.promos = res.data.promos)
 		            .catch(err => console.dir(err.response))
 		        }
 	    	},
 		    paginate(e) {
 		    	const sortBy = e.sortBy.length > 0 ? e.sortBy[0].trim() : 'name';
 		    	const orderBy = e.sortDesc[0] ? 'desc' : 'asc';
-				axios.get(`/api/roles`, {params: {'page': e.page,'per_page': e.itemsPerPage, 'sort_by': sortBy, 'order_by': orderBy}})
+				axios.get(`/api/promos`, {params: {'page': e.page,'per_page': e.itemsPerPage, 'sort_by': sortBy, 'order_by': orderBy}})
 				.then(res => {
-					this.roles = res.data.roles
+					this.promos = res.data.promos
 				})
 				.catch(err => {
 					if(err.response.status == 401) {
@@ -204,19 +229,19 @@
                 });
 			},
 		    editItem (item) {
-		        this.editedIndex = this.roles.data.indexOf(item)
+		        this.editedIndex = this.promos.data.indexOf(item)
 		        this.editedItem = Object.assign({}, item)
 		        this.dialog = true
 		    },
 		    deleteItem (item) {
-		        const index = this.roles.data.indexOf(item)
+		        const index = this.promos.data.indexOf(item)
 		        let decide = confirm('Are you sure you want to delete this item?')
 		        if(decide) {
-			        axios.delete('/api/roles/' + item.id)
+			        axios.delete('/api/promos/' + item.id)
 			        .then(res => {
 		        		this.text = "Record Deleted Successfully!";
 			        	this.snackbar = true;
-			        	this.roles.data.splice(index, 1)
+			        	this.promos.data.splice(index, 1)
 			        }).catch(err => {
 			        	console.log(err.response)
 		        		this.text = "Error Deleting Record!";
@@ -234,11 +259,11 @@
 		    save () {
 		        if (this.editedIndex > -1) {
 		        	const index = this.editedIndex
-		        	axios.put('/api/roles/' + this.editedItem.id, {'name': this.editedItem.name })
+		        	axios.put('/api/promos/' + this.editedItem.id, {'name': this.editedItem.name })
 		        	.then(res => {
 		        		this.text = "Record Updated Successfully!";
 		        		this.snackbar = true;
-		        		Object.assign(this.roles.data[index], res.data.role)
+		        		Object.assign(this.promos.data[index], res.data.promo)
 		        	})
 		        	.catch(err => {
 		        		console.log(err.response)
@@ -246,11 +271,11 @@
 		        		this.snackbar = true;
 		        	})
 		        } else {
-			        axios.post('/api/roles', {'name': this.editedItem.name })
+			        axios.post('/api/promos', {'name': this.editedItem.name })
 			    	.then(res => {
 		        		this.text = "Record Added Successfully!";
 		        		this.snackbar = true;
-			    		this.roles.data.push(res.data.role)
+			    		this.promos.data.push(res.data.promo)
 			    	})
 			    	.catch(err => {
 		        		console.log(err.response)
