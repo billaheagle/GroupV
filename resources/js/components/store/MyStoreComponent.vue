@@ -37,9 +37,9 @@
 
         <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app color="light-blue darken-1" dark>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-            <v-btn text to="/admin">
+            <v-btn text to="/my-store">
                 <v-toolbar-title style="width: 230px" class="ml-0 pl-4">
-                    <span class="hidden-sm-and-down">ADMIN LARASHOP</span>
+                    <span class="hidden-sm-and-down">JANNNAH GATE</span>
                 </v-toolbar-title>
             </v-btn>
             <v-spacer />
@@ -103,35 +103,20 @@
             theme: false,
             items_menu: [
                 {
-                    icon: 'mdi-account',
-                    text: 'Users',
-                    action: '/admin/users'
+                    icon: 'mdi-gift',
+                    text: 'Merchandise',
+                    action: '/my-store/my-merchandise'
                 }, 
                 {
-                    icon: 'mdi-animation-outline',
-                    text: 'Roles',
-                    action: '/admin/roles'
-                }, 
+                    icon: 'mdi-book-multiple',
+                    text: 'Reports',
+                    action: '/my-store/my-reports'
+                },
                 {
-                    icon: 'mdi-briefcase-edit-outline',
-                    text: 'Categories',
-                    action: '/admin/categories'
-                }, 
-                {
-                    icon: 'mdi-store',
-                    text: 'Stores',
-                    action: '/admin/stores'
-                }, 
-                {
-                    icon: 'mdi-wallet',
-                    text: 'Payments',
-                    action: '/admin/payments'
-                }, 
-                {
-                    icon: 'mdi-ticket-percent',
-                    text: 'Promos',
-                    action: '/admin/promos'
-                }, 
+                    icon: 'mdi-settings',
+                    text: 'Store Settings',
+                    action: '#'
+                },
             ],
             items_profile: [
                 {

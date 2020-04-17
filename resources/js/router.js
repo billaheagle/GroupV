@@ -10,6 +10,19 @@ import CategoriesComponent from './components/admin/CategoriesComponent';
 import StoresComponent from './components/admin/StoresComponent';
 import PaymentsComponent from './components/admin/PaymentsComponent';
 import PromosComponent from './components/admin/PromosComponent';
+//------------------COSTUMER COMPONENT---------------------------//
+import CartsComponent from './components/costumer/CartsComponent';
+import MessagesComponent from './components/costumer/MessagesComponent';
+import WishlistsComponent from './components/costumer/WishlistsComponent';
+import OrdersComponent from './components/costumer/OrdersComponent';
+import StoreComponent from './components/costumer/StoreComponent';
+import MerchandiseComponent from './components/costumer/MerchandiseComponent';
+import ReportsComponent from './components/costumer/ReportsComponent';
+//--------------------STORE COMPONENT---------------------------//
+import MyStoreComponent from './components/store/MyStoreComponent';
+import MyMerchandiseComponent from './components/store/MyMerchandiseComponent';
+import MyReportsComponent from './components/store/MyReportsComponent';
+
 
 
 Vue.use(VueRouter)
@@ -18,12 +31,66 @@ const routes = [
 {
 	path: '/',
 	component: DashboardComponent,
-	name: 'Dashboard'
+	name: 'Dashboard', //Costumer
+	children: [
+		{
+			path: '/messages',
+			component: MessagesComponent,
+			name: 'Messages'
+		},
+		{
+			path: '/reports',
+			component: ReportsComponent,
+			name: 'Reports'
+		},
+		{
+			path: '/wishlists',
+			component: WishlistsComponent,
+			name: 'Wishlists'
+		},
+		{
+			path: '/carts',
+			component: CartsComponent,
+			name: 'Carts'
+		},
+		{
+			path: '/orders',
+			component: OrdersComponent,
+			name: 'Orders'
+		},
+		{
+			path: '/store',
+			component: StoreComponent,
+			name: 'Store'
+		},
+		{
+			path: '/merchandise',
+			component: MerchandiseComponent,
+			name: 'Merchandise'
+		},
+	]
 },
 {
-	path: '/login',
-	component: LoginComponent,
-	name: 'Login'
+	path: '/my-store',
+	component: MyStoreComponent,
+	name: 'My Store',
+	children: [
+		{
+			path: 'messages',
+			component: MessagesComponent,
+			name: 'Messages'
+		},
+		{
+			path: 'my-reports',
+			component: MyReportsComponent,
+			name: 'My Reports'
+		},
+		{
+			path: 'my-merchandise',
+			component: MyMerchandiseComponent,
+			name: 'My Merchandise'
+		},
+	]
 },
 {
 	path : '/admin',
@@ -61,6 +128,11 @@ const routes = [
 			name: 'Users'
 		},
 	],
+},
+{
+	path: '/login',
+	component: LoginComponent,
+	name: 'Login'
 },
 ]
 

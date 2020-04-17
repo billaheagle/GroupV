@@ -6,21 +6,78 @@
                     <span class="hidden-sm-and-down">LARASHOP</span>
                 </v-toolbar-title>
             </v-btn>
-            <v-spacer />
             <v-text-field flat solo-inverted hide-details prepend-inner-icon="mdi-magnify" label="Search" class="hidden-sm-and-down" />
-            <v-spacer />
-            <v-btn icon>
+            <v-btn icon text to="/carts">
                 <v-icon>mdi-cart</v-icon>
             </v-btn>
-            <v-btn icon>
-                <v-icon>mdi-message-text</v-icon>
+            <v-menu open-on-hover offsetY>
+                <template v-slot:activator="{ on }">
+                    <v-btn icon v-on="on">
+                        <v-icon>mdi-bell</v-icon>
+                    </v-btn>
+                </template>
+                <v-list dense>
+                    <v-list-item v-for="(item, index) in notification" :key="index" link :to="item.action">
+                        <v-list-item-content>
+                            <v-list-item-title>
+                                {{ item.text }}
+                            </v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+            <v-btn icon text to="/messages">
+                <v-icon>mdi-email</v-icon>
             </v-btn>
-            <v-btn icon to="/login">
+            <!--v-btn icon to="/login">
                 <v-icon>mdi-login</v-icon>
+            </v-btn-->
+            <v-btn text to="/my-store">
+                <v-avatar size="36">
+                    <v-img src="storage/logos/no_logo.png" aspect-ratio="1"></v-img>
+                </v-avatar>
+                <div style="margin-left:0.5em">Jannah Gate</div>
             </v-btn>
+            <v-menu open-on-hover offsetY>
+                <template v-slot:activator="{ on }">
+                    <v-btn text v-on="on">
+                        <v-avatar size="36">
+                            <v-img src="storage/avatars/no_image.png" aspect-ratio="1"></v-img>
+                        </v-avatar>
+                        <div style="margin-left:0.5em">Kiseki no Sedai</div>
+                    </v-btn>
+                </template>
+                <v-list dense>
+                    <v-list-item v-for="(item, index) in profile_menu" :key="index" link :to="item.action">
+                        <v-list-item-action>
+                            <v-icon>{{ item.icon }}</v-icon>
+                        </v-list-item-action>
+                        <v-list-item-content>
+                            <v-list-item-title>
+                                {{ item.text }}
+                            </v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
         </v-app-bar>
-
         <v-content>
+            <v-container class="">
+                <router-view></router-view>
+                <v-row justify="center" align="center">
+                    <v-col>
+                        <v-snackbar v-model="snackbar">
+                            You are LoggedIn Successfully!
+                            <v-btn color="pink" text @click="snackbar = false">
+                            Close
+                          </v-btn>
+                        </v-snackbar>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </v-content>
+
+        <!--v-content>
             <v-container class="fill-height" fluid>
             	<v-card :loading="loading" class="mx-auto my-12" max-width="374">
 				    <v-img width="300px" src="https://cdn.vuetifyjs.com/images/cards/cooking.png">
@@ -41,7 +98,7 @@
 				    </v-card-text>
 				</v-card>
             </v-container>
-        </v-content>
+        </v-content-->
         <v-footer color="light-blue darken-1" app>
             <span class="white--text">Kiseki no Sedai &copy; 2020</span>
         </v-footer>
@@ -52,8 +109,42 @@
         props: {
             source: String,
         },
-
         data: () => ({
+            toggle_exclusive: 2,
+            text: 'center',
+            snackbar: false,
+            toggle_none: null,
+            profile_menu: [
+                {
+                    icon: 'mdi-settings',
+                    text: 'Account Settings',
+                    action: '/admin/users'
+                },
+                {
+                    icon: 'mdi-package',
+                    text: 'My Order',
+                    action: '/admin/roles'
+                },
+                {
+                    icon: 'mdi-logout',
+                    text: 'Logout',
+                    action: '/login'
+                },
+            ],
+            notification: [
+                {
+                    text: 'Notification 1',
+                    action: '#'
+                },
+                {
+                    text: 'Notification 2',
+                    action: '#'
+                },
+                {
+                    text: 'Notification 3',
+                    action: '#'
+                },
+            ],
             drawer: null,
             loading: false,
         }),
