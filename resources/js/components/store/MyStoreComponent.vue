@@ -46,9 +46,6 @@
             <v-btn icon text>
                 <v-icon>mdi-bell</v-icon>
             </v-btn>
-            <v-btn icon to="/messages">
-                <v-icon>mdi-email</v-icon>
-            </v-btn>
             <!--v-btn icon to="/login">
                 <v-icon>mdi-account</v-icon>
             </v-btn-->
@@ -113,9 +110,14 @@
                     action: '/my-store/my-reports'
                 },
                 {
+                    icon: 'mdi-email',
+                    text: 'Messages',
+                    action: '/my-store/my-messages'
+                },
+                {
                     icon: 'mdi-settings',
                     text: 'Store Settings',
-                    action: '#'
+                    action: '/my-store/my-settings'
                 },
             ],
             items_profile: [

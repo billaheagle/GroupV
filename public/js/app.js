@@ -2035,12 +2035,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     source: String
   },
   data: function data() {
     return {
+      drawer: null,
+      loading: false,
+      colors: ['indigo', 'warning', 'pink darken-2', 'red lighten-1', 'deep-purple accent-4'],
+      slides: ['First', 'Second', 'Third', 'Fourth', 'Fifth'],
       toggle_exclusive: 2,
       text: 'center',
       snackbar: false,
@@ -2068,8 +2112,115 @@ __webpack_require__.r(__webpack_exports__);
         text: 'Notification 3',
         action: '#'
       }],
-      drawer: null,
-      loading: false
+      categories: [{
+        text: 'Buku',
+        photo: 'storage/photos/buku.png',
+        action: '#'
+      }, {
+        text: 'Dapur',
+        photo: 'storage/photos/dapur.png',
+        action: '#'
+      }, {
+        text: 'Elektronik',
+        photo: 'storage/photos/elektronik.png',
+        action: '#'
+      }, {
+        text: 'Fashion Anak',
+        photo: 'storage/photos/fashion-anak.png',
+        action: '#'
+      }, {
+        text: 'Fashion Muslim',
+        photo: 'storage/photos/fashion-muslim.png',
+        action: '#'
+      }, {
+        text: 'Fashion Pria',
+        photo: 'storage/photos/fashion-pria.png',
+        action: '#'
+      }, {
+        text: 'Fashion Wanita',
+        photo: 'storage/photos/fashion-wanita.png',
+        action: '#'
+      }, {
+        text: 'Film & Musik',
+        photo: 'storage/photos/film-musik.png',
+        action: '#'
+      }, {
+        text: 'Handphone & Tablet',
+        photo: 'storage/photos/handphone-tablet.png',
+        action: '#'
+      }, {
+        text: 'Ibu & Bayi',
+        photo: 'storage/photos/ibu-bayi.png',
+        action: '#'
+      }, {
+        text: 'Kamera',
+        photo: 'storage/photos/kamera.png',
+        action: '#'
+      }, {
+        text: 'Kencantikan',
+        photo: 'storage/photos/kecantikan.png',
+        action: '#'
+      }, {
+        text: 'Kesehatan',
+        photo: 'storage/photos/kesehatan.png',
+        action: '#'
+      }, {
+        text: 'Komputer & Laptop',
+        photo: 'storage/photos/komputer-laptop.png',
+        action: '#'
+      }, {
+        text: 'Logam Mulia',
+        photo: 'storage/photos/logam-mulia.png',
+        action: '#'
+      }, {
+        text: 'Mainan & Hobi',
+        photo: 'storage/photos/mainan-hobi.png',
+        action: '#'
+      }, {
+        text: 'Makanan & Miuman',
+        photo: 'storage/photos/makanan-minuman.png',
+        action: '#'
+      }, {
+        text: 'Office & Stationery',
+        photo: 'storage/photos/office-stationery.png',
+        action: '#'
+      }, {
+        text: 'Olahraga',
+        photo: 'storage/photos/olahraga.png',
+        action: '#'
+      }, {
+        text: 'Otomotif',
+        photo: 'storage/photos/otomotif.png',
+        action: '#'
+      }, {
+        text: 'Perawatan Hewan',
+        photo: 'storage/photos/perawatan-hewan.png',
+        action: '#'
+      }, {
+        text: 'Perawatan Tubuh',
+        photo: 'storage/photos/perawatan-tubuh.png',
+        action: '#'
+      }, {
+        text: 'Perlengkapan Pesta',
+        photo: 'storage/photos/perlengkapan-pesta.png',
+        action: '#'
+      }, {
+        text: 'Pertukangan',
+        photo: 'storage/photos/pertukangan.png',
+        action: '#'
+      }, {
+        text: 'Rumah Tangga',
+        photo: 'storage/photos/rumah-tangga.png',
+        action: '#'
+      }, {
+        text: 'Wedding',
+        photo: 'storage/photos/wedding.png',
+        action: '#'
+      }, {
+        text: 'Produk Lainnya',
+        photo: 'storage/photos/produk-lainnya.png',
+        action: '#'
+      }]
     };
   },
   methods: {}
@@ -4634,6 +4785,106 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/costumer/MerchandiseComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/costumer/MerchandiseComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      drawer: null,
+      loading: false
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/costumer/MessagesComponent.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/costumer/MessagesComponent.vue?vue&type=script&lang=js& ***!
@@ -5534,9 +5785,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     source: String
@@ -5555,9 +5803,13 @@ __webpack_require__.r(__webpack_exports__);
         text: 'Reports',
         action: '/my-store/my-reports'
       }, {
+        icon: 'mdi-email',
+        text: 'Messages',
+        action: '/my-store/my-messages'
+      }, {
         icon: 'mdi-settings',
         text: 'Store Settings',
-        action: '#'
+        action: '/my-store/my-settings'
       }],
       items_profile: [{
         icon: 'mdi-settings',
@@ -23986,7 +24238,7 @@ var render = function() {
             [
               _c(
                 "v-toolbar-title",
-                { staticClass: "ml-0 pl-4", staticStyle: { width: "150px" } },
+                { staticClass: "ml-0 pl-3", staticStyle: { width: "135px" } },
                 [
                   _c("span", { staticClass: "hidden-sm-and-down" }, [
                     _vm._v("LARASHOP")
@@ -24051,9 +24303,9 @@ var render = function() {
                         [
                           _c("v-list-item-title", [
                             _vm._v(
-                              "\n                                " +
+                              "\n                            " +
                                 _vm._s(item.text) +
-                                "\n                            "
+                                "\n                        "
                             )
                           ])
                         ],
@@ -24163,9 +24415,9 @@ var render = function() {
                         [
                           _c("v-list-item-title", [
                             _vm._v(
-                              "\n                                " +
+                              "\n                            " +
                                 _vm._s(item.text) +
-                                "\n                            "
+                                "\n                        "
                             )
                           ])
                         ],
@@ -24191,6 +24443,320 @@ var render = function() {
             "v-container",
             {},
             [
+              ["Dashboard"].indexOf(_vm.$route.name) > -1
+                ? [
+                    _c(
+                      "v-carousel",
+                      {
+                        attrs: {
+                          cycle: "",
+                          height: "400",
+                          "hide-delimiter-background": "",
+                          "show-arrows-on-hover": ""
+                        }
+                      },
+                      _vm._l(_vm.slides, function(slide, i) {
+                        return _c(
+                          "v-carousel-item",
+                          { key: i },
+                          [
+                            _c(
+                              "v-sheet",
+                              {
+                                attrs: { color: _vm.colors[i], height: "100%" }
+                              },
+                              [
+                                _c(
+                                  "v-row",
+                                  {
+                                    staticClass: "fill-height",
+                                    attrs: {
+                                      align: "center",
+                                      justify: "center"
+                                    }
+                                  },
+                                  [
+                                    _c("div", { staticClass: "display-3" }, [
+                                      _vm._v(_vm._s(slide) + " Slide")
+                                    ])
+                                  ]
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      }),
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-card",
+                      { staticClass: "my-5" },
+                      [
+                        _c(
+                          "v-expansion-panels",
+                          [
+                            _c(
+                              "v-expansion-panel",
+                              [
+                                _c(
+                                  "v-expansion-panel-header",
+                                  [
+                                    _c(
+                                      "v-row",
+                                      {
+                                        staticClass: "spacer",
+                                        attrs: {
+                                          align: "center",
+                                          "no-gutters": ""
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "v-col",
+                                          {
+                                            attrs: {
+                                              cols: "12",
+                                              sm: "12",
+                                              md: "12"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "v-btn",
+                                              { attrs: { text: "", dark: "" } },
+                                              [
+                                                _c(
+                                                  "v-avatar",
+                                                  {
+                                                    attrs: {
+                                                      tile: "",
+                                                      size: "36"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "v-icon",
+                                                      {
+                                                        staticClass:
+                                                          "black--text"
+                                                      },
+                                                      [_vm._v("mdi-apps")]
+                                                    )
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass: "black--text",
+                                                    staticStyle: {
+                                                      "margin-left": "0.5em"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("strong", [
+                                                      _vm._v("Categories")
+                                                    ])
+                                                  ]
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-expansion-panel-content",
+                                  [
+                                    _c(
+                                      "v-row",
+                                      _vm._l(_vm.categories, function(item) {
+                                        return _c(
+                                          "v-col",
+                                          {
+                                            key: item.text,
+                                            attrs: {
+                                              cols: "6",
+                                              sm: "3",
+                                              link: "",
+                                              to: item.action
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "v-btn",
+                                              {
+                                                attrs: {
+                                                  text: "",
+                                                  to: "#",
+                                                  dark: ""
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "v-avatar",
+                                                  {
+                                                    attrs: {
+                                                      tile: "",
+                                                      size: "36"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("v-img", {
+                                                      attrs: {
+                                                        src: item.photo,
+                                                        "aspect-ratio": "1"
+                                                      }
+                                                    })
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass: "black--text",
+                                                    staticStyle: {
+                                                      "margin-left": "0.5em"
+                                                    }
+                                                  },
+                                                  [_vm._v(_vm._s(item.text))]
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      }),
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-row",
+                      { staticClass: "my-5" },
+                      [
+                        _c(
+                          "v-col",
+                          { attrs: { cols: "6", sm: "3" } },
+                          [
+                            _c(
+                              "v-card",
+                              { attrs: { loading: _vm.loading } },
+                              [
+                                _c(
+                                  "v-img",
+                                  {
+                                    attrs: {
+                                      width: "300px",
+                                      src:
+                                        "https://cdn.vuetifyjs.com/images/cards/cooking.png"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        attrs: {
+                                          icon: "",
+                                          large: "",
+                                          color: "pink lighten-5"
+                                        }
+                                      },
+                                      [_c("v-icon", [_vm._v("mdi-heart")])],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c("v-card-title", [
+                                  _vm._v("Makanan Siap Saji")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "v-card-text",
+                                  [
+                                    _c(
+                                      "v-row",
+                                      {
+                                        staticClass: "mx-0",
+                                        attrs: { align: "center" }
+                                      },
+                                      [
+                                        _c("v-rating", {
+                                          attrs: {
+                                            value: 4.5,
+                                            color: "amber",
+                                            dense: "",
+                                            "half-increments": "",
+                                            readonly: "",
+                                            size: "14"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "grey--text ml-4" },
+                                          [_vm._v("4.5 (413)")]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-row",
+                                      [
+                                        _c("v-col", [
+                                          _c("b", [_vm._v("Rp. 30.000.000")])
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-col",
+                                          { staticClass: "text-right" },
+                                          [_vm._v("10300 Terjual")]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ]
+                : _vm._e(),
+              _vm._v(" "),
               _c("router-view"),
               _vm._v(" "),
               _c(
@@ -24213,7 +24779,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                            You are LoggedIn Successfully!\n                            "
+                            "\n                        You are LoggedIn Successfully!\n                        "
                           ),
                           _c(
                             "v-btn",
@@ -24227,7 +24793,7 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\n                            Close\n                          "
+                                "\n                        Close\n                      "
                               )
                             ]
                           )
@@ -24241,7 +24807,7 @@ var render = function() {
                 1
               )
             ],
-            1
+            2
           )
         ],
         1
@@ -27224,6 +27790,339 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/costumer/MerchandiseComponent.vue?vue&type=template&id=de24bb88&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/costumer/MerchandiseComponent.vue?vue&type=template&id=de24bb88&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-app",
+    { attrs: { id: "inspire" } },
+    [
+      _c(
+        "v-row",
+        [
+          _c(
+            "v-col",
+            { attrs: { cols: "3", sm: "3" } },
+            [
+              _c(
+                "v-card",
+                { staticClass: "mt-3" },
+                [
+                  _c("v-card-text", [_c("div", [_vm._v("Filter")])]),
+                  _vm._v(" "),
+                  _c("v-card-actions")
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            { attrs: { cols: "9", sm: "9" } },
+            [
+              _c(
+                "v-row",
+                [
+                  _c(
+                    "v-col",
+                    { attrs: { cols: "6", sm: "4" } },
+                    [
+                      _c(
+                        "v-card",
+                        { attrs: { loading: _vm.loading } },
+                        [
+                          _c(
+                            "v-img",
+                            {
+                              attrs: {
+                                width: "300px",
+                                src:
+                                  "https://cdn.vuetifyjs.com/images/cards/cooking.png"
+                              }
+                            },
+                            [
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    icon: "",
+                                    large: "",
+                                    color: "pink lighten-5"
+                                  }
+                                },
+                                [_c("v-icon", [_vm._v("mdi-heart")])],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-card-title", [_vm._v("Makanan Siap Saji")]),
+                          _vm._v(" "),
+                          _c(
+                            "v-card-text",
+                            [
+                              _c(
+                                "v-row",
+                                {
+                                  staticClass: "mx-0",
+                                  attrs: { align: "center" }
+                                },
+                                [
+                                  _c("v-rating", {
+                                    attrs: {
+                                      value: 4.5,
+                                      color: "amber",
+                                      dense: "",
+                                      "half-increments": "",
+                                      readonly: "",
+                                      size: "14"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "grey--text ml-4" },
+                                    [_vm._v("4.5 (413)")]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-row",
+                                [
+                                  _c("v-col", [
+                                    _c("b", [_vm._v("Rp. 30.000.000")])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("v-col", { staticClass: "text-right" }, [
+                                    _vm._v("10300 Terjual")
+                                  ])
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { attrs: { cols: "6", sm: "4" } },
+                    [
+                      _c(
+                        "v-card",
+                        { attrs: { loading: _vm.loading } },
+                        [
+                          _c(
+                            "v-img",
+                            {
+                              attrs: {
+                                width: "300px",
+                                src:
+                                  "https://cdn.vuetifyjs.com/images/cards/cooking.png"
+                              }
+                            },
+                            [
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    icon: "",
+                                    large: "",
+                                    color: "pink lighten-5"
+                                  }
+                                },
+                                [_c("v-icon", [_vm._v("mdi-heart")])],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-card-title", [_vm._v("Makanan Siap Saji")]),
+                          _vm._v(" "),
+                          _c(
+                            "v-card-text",
+                            [
+                              _c(
+                                "v-row",
+                                {
+                                  staticClass: "mx-0",
+                                  attrs: { align: "center" }
+                                },
+                                [
+                                  _c("v-rating", {
+                                    attrs: {
+                                      value: 4.5,
+                                      color: "amber",
+                                      dense: "",
+                                      "half-increments": "",
+                                      readonly: "",
+                                      size: "14"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "grey--text ml-4" },
+                                    [_vm._v("4.5 (413)")]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-row",
+                                [
+                                  _c("v-col", [
+                                    _c("b", [_vm._v("Rp. 30.000.000")])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("v-col", { staticClass: "text-right" }, [
+                                    _vm._v("10300 Terjual")
+                                  ])
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { attrs: { cols: "6", sm: "4" } },
+                    [
+                      _c(
+                        "v-card",
+                        { attrs: { loading: _vm.loading } },
+                        [
+                          _c(
+                            "v-img",
+                            {
+                              attrs: {
+                                width: "300px",
+                                src:
+                                  "https://cdn.vuetifyjs.com/images/cards/cooking.png"
+                              }
+                            },
+                            [
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    icon: "",
+                                    large: "",
+                                    color: "pink lighten-5"
+                                  }
+                                },
+                                [_c("v-icon", [_vm._v("mdi-heart")])],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("v-card-title", [_vm._v("Makanan Siap Saji")]),
+                          _vm._v(" "),
+                          _c(
+                            "v-card-text",
+                            [
+                              _c(
+                                "v-row",
+                                {
+                                  staticClass: "mx-0",
+                                  attrs: { align: "center" }
+                                },
+                                [
+                                  _c("v-rating", {
+                                    attrs: {
+                                      value: 4.5,
+                                      color: "amber",
+                                      dense: "",
+                                      "half-increments": "",
+                                      readonly: "",
+                                      size: "14"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "grey--text ml-4" },
+                                    [_vm._v("4.5 (413)")]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-row",
+                                [
+                                  _c("v-col", [
+                                    _c("b", [_vm._v("Rp. 30.000.000")])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("v-col", { staticClass: "text-right" }, [
+                                    _vm._v("10300 Terjual")
+                                  ])
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/costumer/MessagesComponent.vue?vue&type=template&id=2952eb3f&scoped=true&":
 /*!*****************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/costumer/MessagesComponent.vue?vue&type=template&id=2952eb3f&scoped=true& ***!
@@ -28485,13 +29384,6 @@ var render = function() {
             "v-btn",
             { attrs: { icon: "", text: "" } },
             [_c("v-icon", [_vm._v("mdi-bell")])],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-btn",
-            { attrs: { icon: "", to: "/messages" } },
-            [_c("v-icon", [_vm._v("mdi-email")])],
             1
           ),
           _vm._v(" "),
@@ -86107,26 +86999,63 @@ component.options.__file = "resources/js/components/costumer/CartsComponent.vue"
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
+/* harmony import */ var _MerchandiseComponent_vue_vue_type_template_id_de24bb88_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MerchandiseComponent.vue?vue&type=template&id=de24bb88&scoped=true& */ "./resources/js/components/costumer/MerchandiseComponent.vue?vue&type=template&id=de24bb88&scoped=true&");
+/* harmony import */ var _MerchandiseComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MerchandiseComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/costumer/MerchandiseComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MerchandiseComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MerchandiseComponent_vue_vue_type_template_id_de24bb88_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MerchandiseComponent_vue_vue_type_template_id_de24bb88_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "de24bb88",
   null
   
 )
 
+/* hot reload */
+if (false) { var api; }
 component.options.__file = "resources/js/components/costumer/MerchandiseComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/costumer/MerchandiseComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/costumer/MerchandiseComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MerchandiseComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./MerchandiseComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/costumer/MerchandiseComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MerchandiseComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/costumer/MerchandiseComponent.vue?vue&type=template&id=de24bb88&scoped=true&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/components/costumer/MerchandiseComponent.vue?vue&type=template&id=de24bb88&scoped=true& ***!
+  \**************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MerchandiseComponent_vue_vue_type_template_id_de24bb88_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./MerchandiseComponent.vue?vue&type=template&id=de24bb88&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/costumer/MerchandiseComponent.vue?vue&type=template&id=de24bb88&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MerchandiseComponent_vue_vue_type_template_id_de24bb88_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MerchandiseComponent_vue_vue_type_template_id_de24bb88_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -86396,6 +87325,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/store/MyMessagesComponent.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/store/MyMessagesComponent.vue ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/store/MyMessagesComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/store/MyReportsComponent.vue":
 /*!**************************************************************!*\
   !*** ./resources/js/components/store/MyReportsComponent.vue ***!
@@ -86462,6 +87423,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyReportsComponent_vue_vue_type_template_id_04cc5b23_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/store/MySettingsComponent.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/store/MySettingsComponent.vue ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/store/MySettingsComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
@@ -86581,8 +87574,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_costumer_MerchandiseComponent__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/costumer/MerchandiseComponent */ "./resources/js/components/costumer/MerchandiseComponent.vue");
 /* harmony import */ var _components_costumer_ReportsComponent__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/costumer/ReportsComponent */ "./resources/js/components/costumer/ReportsComponent.vue");
 /* harmony import */ var _components_store_MyStoreComponent__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/store/MyStoreComponent */ "./resources/js/components/store/MyStoreComponent.vue");
-/* harmony import */ var _components_store_MyMerchandiseComponent__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/store/MyMerchandiseComponent */ "./resources/js/components/store/MyMerchandiseComponent.vue");
-/* harmony import */ var _components_store_MyReportsComponent__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/store/MyReportsComponent */ "./resources/js/components/store/MyReportsComponent.vue");
+/* harmony import */ var _components_store_MyMessagesComponent__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/store/MyMessagesComponent */ "./resources/js/components/store/MyMessagesComponent.vue");
+/* harmony import */ var _components_store_MyMerchandiseComponent__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/store/MyMerchandiseComponent */ "./resources/js/components/store/MyMerchandiseComponent.vue");
+/* harmony import */ var _components_store_MyReportsComponent__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/store/MyReportsComponent */ "./resources/js/components/store/MyReportsComponent.vue");
+/* harmony import */ var _components_store_MySettingsComponent__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/store/MySettingsComponent */ "./resources/js/components/store/MySettingsComponent.vue");
 
 
 
@@ -86603,6 +87598,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
  //--------------------STORE COMPONENT---------------------------//
+
+
 
 
 
@@ -86651,13 +87648,21 @@ var routes = [{
     component: _components_costumer_MessagesComponent__WEBPACK_IMPORTED_MODULE_12__["default"],
     name: 'Messages'
   }, {
+    path: 'my-messages',
+    component: _components_store_MyMessagesComponent__WEBPACK_IMPORTED_MODULE_19__["default"],
+    name: 'My Messages'
+  }, {
     path: 'my-reports',
-    component: _components_store_MyReportsComponent__WEBPACK_IMPORTED_MODULE_20__["default"],
+    component: _components_store_MyReportsComponent__WEBPACK_IMPORTED_MODULE_21__["default"],
     name: 'My Reports'
   }, {
     path: 'my-merchandise',
-    component: _components_store_MyMerchandiseComponent__WEBPACK_IMPORTED_MODULE_19__["default"],
+    component: _components_store_MyMerchandiseComponent__WEBPACK_IMPORTED_MODULE_20__["default"],
     name: 'My Merchandise'
+  }, {
+    path: 'my-settings',
+    component: _components_store_MySettingsComponent__WEBPACK_IMPORTED_MODULE_22__["default"],
+    name: 'My Settings'
   }]
 }, {
   path: '/admin',
@@ -86737,8 +87742,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\Larashop-KisekiNoSedai\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\Larashop-KisekiNoSedai\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\XAMPP\htdocs\Larashop-KisekiNoSedai\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\XAMPP\htdocs\Larashop-KisekiNoSedai\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -20,8 +20,10 @@ import MerchandiseComponent from './components/costumer/MerchandiseComponent';
 import ReportsComponent from './components/costumer/ReportsComponent';
 //--------------------STORE COMPONENT---------------------------//
 import MyStoreComponent from './components/store/MyStoreComponent';
+import MyMessagesComponent from './components/store/MyMessagesComponent';
 import MyMerchandiseComponent from './components/store/MyMerchandiseComponent';
 import MyReportsComponent from './components/store/MyReportsComponent';
+import MySettingsComponent from './components/store/MySettingsComponent';
 
 
 
@@ -81,6 +83,11 @@ const routes = [
 			name: 'Messages'
 		},
 		{
+			path: 'my-messages',
+			component: MyMessagesComponent,
+			name: 'My Messages'
+		},
+		{
 			path: 'my-reports',
 			component: MyReportsComponent,
 			name: 'My Reports'
@@ -89,6 +96,11 @@ const routes = [
 			path: 'my-merchandise',
 			component: MyMerchandiseComponent,
 			name: 'My Merchandise'
+		},
+		{
+			path: 'my-settings',
+			component: MySettingsComponent,
+			name: 'My Settings'
 		},
 	]
 },
